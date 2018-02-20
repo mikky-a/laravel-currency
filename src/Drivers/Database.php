@@ -3,7 +3,6 @@
 namespace Torann\Currency\Drivers;
 
 use DateTime;
-use Illuminate\Support\Collection;
 use Illuminate\Database\DatabaseManager;
 
 class Database extends AbstractDriver
@@ -62,14 +61,14 @@ class Database extends AbstractDriver
         return $this->database->table($this->config('table'))
             ->get()
             ->keyBy('code')
-            ->map(function($row) {
+            ->map(function ($row) {
                 return (array) $row;
             })
             ->toArray();
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function allActive()
     {
@@ -77,7 +76,7 @@ class Database extends AbstractDriver
             ->where('active', 1)
             ->get()
             ->keyBy('code')
-            ->map(function($row) {
+            ->map(function ($row) {
                 return (array) $row;
             })
             ->toArray();

@@ -48,7 +48,7 @@ interface DriverInterface
      *
      * @return int
      */
-    public function update($code, array $attributes, DateTime $timestamp = NULL);
+    public function update($code, array $attributes, DateTime $timestamp = null);
 
     /**
      * Activate given currency.

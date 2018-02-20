@@ -8,7 +8,7 @@ use Torann\Currency\Contracts\DriverInterface;
 abstract class AbstractDriver implements DriverInterface
 {
     /**
-     * Driver config
+     * Driver config.
      *
      * @var array
      */

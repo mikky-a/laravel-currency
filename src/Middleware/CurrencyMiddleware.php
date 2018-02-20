@@ -53,8 +53,6 @@ class CurrencyMiddleware
         if ($currency && currency()->isActive($currency) === true) {
             return $currency;
         }
-
-        return null;
     }
 
     /**

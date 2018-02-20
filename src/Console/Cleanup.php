@@ -21,7 +21,7 @@ class Cleanup extends Command
     protected $description = 'Cleanup currency cache';
 
     /**
-     * Currency instance
+     * Currency instance.
      *
      * @var \Torann\Currency\Currency
      */

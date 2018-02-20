@@ -16,14 +16,14 @@ class Currency
     protected $config = [];
 
     /**
-     * Laravel application
+     * Laravel application.
      *
      * @var \Illuminate\Contracts\Cache\Factory
      */
     protected $cache;
 
     /**
-     * User's currency
+     * User's currency.
      *
      * @var string
      */
@@ -44,7 +44,7 @@ class Currency
     protected $formatter;
 
     /**
-     * Cached currencies
+     * Cached currencies.
      *
      * @var array
      */
@@ -87,7 +87,7 @@ class Currency
 
         // Skip invalid to currency rates
         if (! $to_rate || ! $from_rate) {
-            return null;
+            return;
         }
 
         // Convert amount
@@ -411,7 +411,7 @@ class Currency
      */
     protected function updateFromOpenExchangeRates()
     {
-        if (!$api = $this->config('api_key')) {
+        if (! $api = $this->config('api_key')) {
             return false;
         }
 
@@ -457,7 +457,7 @@ class Currency
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
         curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1");
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1');
         curl_setopt($ch, CURLOPT_HTTPGET, true);
         curl_setopt($ch, CURLOPT_MAXREDIRS, 2);
         curl_setopt($ch, CURLOPT_MAXCONNECTS, 2);

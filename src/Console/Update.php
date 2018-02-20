@@ -22,7 +22,7 @@ class Update extends Command
     protected $description = 'Update exchange rates from an online source';
 
     /**
-     * Currency instance
+     * Currency instance.
      *
      * @var \Torann\Currency\Currency
      */
@@ -46,7 +46,7 @@ class Update extends Command
     public function handle()
     {
         if ($this->input->getOption('openexchangerates')) {
-            if (!$api = $this->currency->config('api_key')) {
+            if (! $api = $this->currency->config('api_key')) {
                 $this->error('An API key is needed from OpenExchangeRates.org to continue.');
 
                 return;
@@ -56,8 +56,7 @@ class Update extends Command
             $this->comment('Updating currency exchange rates from OpenExchangeRates.org...');
 
             $this->currency->updateRates(true);
-        }
-        else {
+        } else {
             // Get rates
             $this->comment('Updating currency exchange rates from Finance Yahoo...');
 

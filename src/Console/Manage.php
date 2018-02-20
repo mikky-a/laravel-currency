@@ -25,7 +25,7 @@ class Manage extends Command
     protected $description = 'Manage currency values';
 
     /**
-     * Currency storage instance
+     * Currency storage instance.
      *
      * @var \Torann\Currency\Contracts\DriverInterface
      */
@@ -44,7 +44,7 @@ class Manage extends Command
     public function __construct()
     {
         $this->storage = app('currency')->getDriver();
-        $this->currencies = include(__DIR__ . '/../../resources/currencies.php');
+        $this->currencies = include __DIR__.'/../../resources/currencies.php';
 
         parent::__construct();
     }
@@ -81,10 +81,9 @@ class Manage extends Command
         $data['code'] = $currency;
 
         if (is_string($result = $this->storage->create($data))) {
-            $this->output->writeln('<error>' . ($result ?: 'Failed') . '</error>');
-        }
-        else {
-            $this->output->writeln("<info>success</info>");
+            $this->output->writeln('<error>'.($result ?: 'Failed').'</error>');
+        } else {
+            $this->output->writeln('<info>success</info>');
         }
     }
 
@@ -104,10 +103,9 @@ class Manage extends Command
         $this->output->write("Updating {$currency} currency...");
 
         if (is_string($result = $this->storage->update($currency, $data))) {
-            $this->output->writeln('<error>' . ($result ?: 'Failed') . '</error>');
-        }
-        else {
-            $this->output->writeln("<info>success</info>");
+            $this->output->writeln('<error>'.($result ?: 'Failed').'</error>');
+        } else {
+            $this->output->writeln('<info>success</info>');
         }
     }
 
@@ -123,10 +121,9 @@ class Manage extends Command
         $this->output->write("Deleting {$currency} currency...");
 
         if (is_string($result = $this->storage->delete($currency))) {
-            $this->output->writeln('<error>' . ($result ?: 'Failed') . '</error>');
-        }
-        else {
-            $this->output->writeln("<info>success</info>");
+            $this->output->writeln('<error>'.($result ?: 'Failed').'</error>');
+        } else {
+            $this->output->writeln('<info>success</info>');
         }
     }
 

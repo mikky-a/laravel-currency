@@ -45,20 +45,20 @@ class CurrencyServiceProvider extends ServiceProvider
     {
         if ($this->isLumen() === false) {
             $this->publishes([
-                __DIR__ . '/../config/currency.php' => config_path('currency.php'),
+                __DIR__.'/../config/currency.php' => config_path('currency.php'),
             ], 'config');
 
             $this->mergeConfigFrom(
-                __DIR__ . '/../config/currency.php', 'currency'
+                __DIR__.'/../config/currency.php', 'currency'
             );
         }
 
         $this->publishes([
-            __DIR__ . '/../database/migrations' => base_path('/database/migrations'),
+            __DIR__.'/../database/migrations' => base_path('/database/migrations'),
         ], 'migrations');
 
         $this->publishes([
-            __DIR__ . '/../database/seeds' => base_path('/database/seeds'),
+            __DIR__.'/../database/seeds' => base_path('/database/seeds'),
         ], 'seeds');
     }
 
@@ -77,7 +77,7 @@ class CurrencyServiceProvider extends ServiceProvider
     }
 
     /**
-     * Check if package is running under Lumen app
+     * Check if package is running under Lumen app.
      *
      * @return bool
      */
